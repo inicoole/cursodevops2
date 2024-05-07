@@ -1,16 +1,28 @@
 pipeline {
     agent any
     stages {
-        stage('node pipeline') {
+        stage("pipeline node") {
             agent {
-                docker { image 'node:20.11.1-alpine3.19' }
+                docker { 
+                    image 'node:20.11.1-alpine3.19' 
+                    reuseNode true
+                }
             }
             stages {
-                stage('checkout') {
+                stage('instalar dependencias') {
                     steps {
-                        echo "hola mundo"
+                        sh 'npm install'
                     }
-
+                }
+                stage('ejecutar test') {
+                    steps {
+                        sh 'npm run test'
+                    }
+                }
+                stage('hacer build') {
+                    steps {
+                        sh 'npm run build'
+                    }
                 }
             }
         }
