@@ -1,8 +1,8 @@
 import express from "express";
 import { dividir, multiplicar, restar, sumar } from "./calcular.js";
-import fs from "fs";
+
 const AMBIENTE = process.env.AMBIENTE ?? "desconocido";
-const API_KEY = process.env.API_KEY ?? '';
+
 
 const app = express();
 app.use(express.json());
@@ -30,7 +30,7 @@ app.get("/info", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  // const miVariable = fs.readFileSync(API_KEY, 'utf8');
+
   res.send('miVariable');
 });
 
