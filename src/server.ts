@@ -26,12 +26,12 @@ app.post("/calcular", (req, res) => {
 });
 
 app.get("/info", (req, res) => {
-  res.send("Ambiente: " + AMBIENTE);
+  res.send(AMBIENTE);
 });
 
 app.get("/api", (req, res) => {
-  const miVariable = fs.readFileSync(API_KEY, 'utf8');
-  res.send("api_key: " + miVariable);
+  // const miVariable = fs.readFileSync(API_KEY, 'utf8');
+  res.send('miVariable');
 });
 
 export default app;
